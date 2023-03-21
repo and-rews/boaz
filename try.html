@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Try</title>
+  </head>
+  <body>
+    <form
+      id="reservation-form"
+      method="POST"
+      action="https://yakamhotel.com/sitereservations"
+    >
+      <input
+        type="hidden"
+        name="_token"
+        value="zZFo2TUsTuOMZ0ud5GQymtXKjt9LfmjQD2oD3nM0"
+      />
+      <div class="main-panel">
+        <div class="row">
+          <div class="res-left">
+            <h2>Fill form below</h2>
+            <div>
+              <div>
+                <label style="text-align: left" for="">Arrival Date</label>
+                <input
+                  type="date"
+                  name="arrival_date"
+                  placeholder="Arrival Date"
+                  required
+                />
+              </div>
+              <div>
+                <label style="text-align: left" for="">Departure Date</label>
+                <input
+                  type="date"
+                  name="departure_date"
+                  placeholder="Arrival Date"
+                  required
+                />
+              </div>
+
+              <select
+                id="tariff-selector"
+                name="room_type"
+                id="rf-location"
+                required
+              >
+                <option value="">1</option>
+                <option value="">2</option>
+                <option value="">3</option>
+                <option value="">4</option>
+              </select>
+
+              <div>
+                <label style="text-align: left" for="">Number of guests</label>
+                <input
+                  type="number"
+                  name="number_of_guests"
+                  min="1"
+                  max="100"
+                  placeholder="Enter the number of guests"
+                  required
+                />
+              </div>
+
+              <div>
+                <label style="text-align: left" for="">Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  maxlength="50"
+                  placeholder="Enter your fullname"
+                  required
+                />
+              </div>
+
+              <div>
+                <label style="text-align: left" for="">Phone</label>
+                <input
+                  type="tel"
+                  maxlength="10"
+                  placeholder="Enter your phone number"
+                  name="phone_number"
+                  required
+                />
+              </div>
+
+              <label
+                style="text-align: left"
+                for="rf-location"
+                class="visually-hidden required"
+                >Choose Room</label
+              >
+              <button style="margin-top: 30px" type="submit">
+                <span>Book room</span>
+              </button>
+            </div>
+          </div>
+          <div class="res-right">
+            <img src="images/image26.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <script src="js/reservation.js"></script>
+  </body>
+</html>
