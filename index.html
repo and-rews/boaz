@@ -80,7 +80,7 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+							<a class="nav-link dropdown-toggle" href="./about.html" id="navbarDropdown" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false">
 								About Us
 							</a>
@@ -153,8 +153,8 @@
 				<div class="row justify-content-end">
 					<div class="col-lg-4">
 						 <form
-							action=""
-							method="post"
+							action="./booking-details.html"
+							method="GET"
 							class="appointment-form"
 							id="reservation-form"
 						>
@@ -173,68 +173,116 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<input
-											type="text"
+											type="number"
 											class="form-control"
 											placeholder="Phone number"
 											name="phone_number"
+											required
 										/>
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<input
-											type="text"
-											class="form-control"
-											placeholder="Room Type"
+										<select
 											name="room_type"
+											id="room_type"
+											class="form-control"
+										>
+											<option value="" disabled selected>
+											Select Room Type
+											</option>
+											<option value="Apartment 1 (Ground Floor)">
+											Apartment 1 (Ground Floor)
+											</option>
+											<option value="Apartment 2 (Ground Floor)">
+											Apartment 2 (Ground Floor)
+											</option>
+											<option value="Apartment 3 (First Floor)">
+											Apartment 3 (First Floor)
+											</option>
+											<option value="Apartment 4 (First Floor)">
+											Apartment 4 (First Floor)
+											</option>
+										</select>
+									</div>
+                  				</div>
+								
+								<div class="col-md-6">
+									<div class="form-group">
+									<div class="input-wrap">
+										<div class="icon">
+										<span class="ion-md-calendar"></span>
+										</div>
+										<input
+										type="date"
+										placeholder="Check-In"
+										class="form-control"
+										name="arrival_date"
+										id="arrival_date"
+										min="<?php echo date('Y-m-d'); ?>"
+										onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
 										/>
+									</div>
 									</div>
                   				</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<div class="input-wrap">
-											<div class="icon">
-												<span class="ion-md-calendar"></span>
-											</div>
-											<input
-												type="text"
-												class="form-control appointment_date-check-in"
-												placeholder="Check-In"
-												name="arrival_date"
-											/>
+									<div class="input-wrap">
+										<div class="icon">
+										<span class="ion-md-calendar"></span>
 										</div>
+										<input
+										type="date"
+										placeholder="Check-Out"
+										class="form-control"
+										name="departure_date"
+										id="departure_date"
+										/>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<div class="input-wrap">
-											<div class="icon">
-												<span class="ion-md-calendar"></span>
-											</div>
-											<input
-												type="text"
-												class="form-control appointment_date-check-out"
-												placeholder="Check-Out"
-												name="departure_date"
-											/>
-										</div>
 									</div>
 								</div>
 								<div class="col-md-12">
 									<div class="form-group">
 										<input
 											type="number"
+											min="1"
 											class="form-control"
 											placeholder="Number of Guests"
 											name="number_of_guests"
 										/>
 									</div>
 								</div>
-								
+								<div class="col-md-6">
+									<div class="form-group">
+										<input
+											type="number"
+											min="1"
+											class="form-control"
+											placeholder="Adults"
+											name="number_of_adults"
+										/>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input
+											type="number"
+											min="1"
+											class="form-control"
+											placeholder="Children"
+											name="number_of_children"
+										/>
+									</div>
+								</div>
 								<div class="col-md-12">
 									<div class="form-group">
-										<input type="submit" value="Book Apartment Now"
-											class="btn btn-primary py-3 px-4">
+										<button
+											type="submit"
+											class="btn btn-primary"
+											onclick="window.location.href = './booking-details.html'"
+										>
+											Submit
+										</button>
 									</div>
 								</div>
 							</div>
@@ -243,8 +291,6 @@
 				</div>
 			</div>
 		</section>
-
-
 
 
 
@@ -415,8 +461,7 @@
 						<div class="d-block services-wrap text-center">
 							
 							<div class="media-body py-4 px-3">
-								<h3 class="heading"><u><strong>Monthly Rate </strong> </u><br> $60 per day</h3>
-								
+								<h3 class="heading"><u><strong>Monthly Rate</strong> </u><br> $60 per day</h3>	
 							</div>
 						</div>
 					</div>
@@ -722,45 +767,10 @@
 	<script src="js/main.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
-
-
+	<script src="js/details.js"></script>
 
 	<!-- Swiper JS -->
 	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-	<script>
-      $(document).ready(function () {
-        // Bind to the submit event of the reservation form
-        $("#reservation-form").submit(function (event) {
-          // Prevent the default form submission behavior
-          event.preventDefault();
-
-          // Serialize the form data into a URL-encoded string
-          var formData = $(this).serialize();
-
-          // Send the AJAX request
-          $.ajax({
-            url: "https://boaz.hotelipad.com/api/sr",
-            method: "POST",
-            data: formData,
-            dataType: "json",
-            success: function (data) {
-              // Handle successful response here
-              alert("Your reservation was successfully booked!");
-              $("#reservation-form")[0].reset(); // Reset the form
-            },
-            error: function (error) {
-              // Handle error here
-              console.error(
-                "There was a problem with the AJAX request:",
-                error
-              );
-            },
-          });
-        });
-      });
-    </script>
-
 	<!-- Initialize Swiper -->
 	<script>
 		const progressCircle = document.querySelector(".autoplay-progress svg");
@@ -785,6 +795,13 @@
 				}
 			}
 		});
+	</script>
+
+	
+
+	<script>
+		var today = new Date().toISOString().split('T')[0];
+		document.getElementById("arrival_date").setAttribute('min', today);
 	</script>
 </body>
 </html>

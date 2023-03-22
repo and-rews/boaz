@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Gallery -The Boaz Executive Place</title>
+    <title>Home -The Boaz Executive Place</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="css/flaticon.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/css/swiper.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 
   <body>
@@ -55,10 +56,9 @@
       <div class="wrap">
         <div class="container">
           <div class="row justify-content-between">
-            <div class="col d-flex align-items-center">
+            <div class="col d-flex align-items-center topbar">
               <p class="mb-0 phone">
-                <span class="fa fa-phone"></span>
-                <a href="#">+233 592 692 249</a>
+                <span class="fa fa-phone"></span> <a href="#"> 0592692249</a>
                 <span class="fa fa-paper-plane"></span>
                 <a href="mailto:executive@theboazplace.com"
                   >executive@theboazplace.com</a
@@ -124,7 +124,7 @@
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
-                  href="#"
+                  href="./about.html"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -136,14 +136,18 @@
                   <li>
                     <a class="dropdown-item" href="about.html">Our Lodge</a>
                   </li>
-                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
 
                   <li>
                     <a class="dropdown-item" href="mission.html"
                       >Mission & Vision</a
                     >
                   </li>
-                  <li><hr class="dropdown-divider" /></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
                   <li>
                     <a class="dropdown-item" href="core-value.html"
                       >Core Value</a
@@ -179,7 +183,7 @@
                 <a href="apartment.html" class="nav-link">Apartment</a>
               </li>
 
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a href="gallery.html" class="nav-link">Gallery</a>
               </li>
               <li class="nav-item">
@@ -190,108 +194,80 @@
           <a href="booking.html" class="btn btn-primary">Book Now</a>
         </div>
       </nav>
-      <!-- END nav -->
 
-      <section
-        class="hero-wrap hero-wrap-2"
-        style="background-image: url('images/slide-hotel.jpg')"
-        data-stellar-background-ratio="0.5"
-      >
-        <div class="overlay"></div>
-        <div class="container">
-          <div
-            class="row no-gutters slider-text align-items-center justify-content-center"
-          >
-            <div class="col-md-9 ftco-animate text-center">
-              <p class="breadcrumbs mb-2">
-                <span class="mr-2"
-                  ><a href="index.html"
-                    >Home <i class="fa fa-chevron-right"></i></a
-                ></span>
-                <span>Gallery <i class="fa fa-chevron-right"></i></span>
-              </p>
-              <h1 class="mb-0 bread">Gallery</h1>
+      <div class="row justify-content-center">
+        <div class="card booking-card" id="form-details">
+          <img src="./images/boaz-logo.png" alt="" />
+          <div class="grid">
+            <div class="detail">
+              <h3>The Boaz Place</h3>
+              <div class="card p-4">
+                <p><strong>Check-In:</strong> <span id="check-in"></span></p>
+                <p><strong>Check-Out:</strong> <span id="check-out"></span></p>
+              </div>
             </div>
+
+            <div class="detail">
+              <h5 class="mt-3">Accomodation Booking</h5>
+              <div class="card p-4">
+                <p><strong>Room Type:</strong> <span id="room-type"></span></p>
+
+                <p>
+                  <strong>Number of Guests:</strong>
+                  <span id="number-of-guests"></span>
+                </p>
+                <p>
+                  <strong>Number of Adults:</strong>
+                  <span id="number-of-adults"></span>
+                </p>
+                <p>
+                  <strong>Number of Children:</strong>
+                  <span id="number-of-children"></span>
+                </p>
+              </div>
+            </div>
+            <div class="detail">
+              <h5 class="mt-3">Price Summary</h5>
+              <div class="card p-4"></div>
+            </div>
+
+            <div class="detail">
+              <h5 class="mt-3">Guest Details</h5>
+              <div class="card p-4">
+                <p><strong>Name:</strong> <span id="full-name"></span></p>
+                <p>
+                  <strong>Phone Number:</strong> <span id="phone-number"></span>
+                </p>
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-success mt-3">
+                Confirm Booking
+              </button>
+            </div>
+
+            <script>
+              const params = new URLSearchParams(window.location.search);
+              document.getElementById("full-name").textContent =
+                params.get("name");
+              document.getElementById("phone-number").textContent =
+                params.get("phone_number");
+              document.getElementById("room-type").textContent =
+                params.get("room_type");
+              document.getElementById("check-in").textContent =
+                params.get("arrival_date");
+              document.getElementById("check-out").textContent =
+                params.get("departure_date");
+              document.getElementById("number-of-guests").textContent =
+                params.get("number_of_guests");
+              document.getElementById("number-of-adults").textContent =
+                params.get("number_of_adults");
+              document.getElementById("number-of-children").textContent =
+                params.get("number_of_children");
+            </script>
           </div>
         </div>
-      </section>
-      <section>
-        <div class="grid-container">
-          <a
-            href="images/01.jpg"
-            data-lightbox="gallery"
-            data-title="Image 1"
-            download
-          >
-            <img src="images/01.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/02.jpg"
-            data-lightbox="gallery"
-            data-title="Image 2"
-            download
-          >
-            <img src="images/02.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/03.jpg"
-            data-lightbox="gallery"
-            data-title="Image 3"
-            download
-          >
-            <img src="images/03.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/04.jpg"
-            data-lightbox="gallery"
-            data-title="Image 4"
-            download
-          >
-            <img src="images/04.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/05.jpg"
-            data-lightbox="gallery"
-            data-title="Image 5"
-            download
-          >
-            <img src="images/05.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/06.jpg"
-            data-lightbox="gallery"
-            data-title="Image 6"
-            download
-          >
-            <img src="images/06.jpg" class="grid-item" />
-          </a>
-
-          <a
-            href="images/ap-03.jpg"
-            data-lightbox="gallery"
-            data-title="Image 1"
-            download
-          >
-            <img src="images/ap-03.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/ap-02.jpg"
-            data-lightbox="gallery"
-            data-title="Image 2"
-            download
-          >
-            <img src="images/ap-02.jpg" class="grid-item" />
-          </a>
-          <a
-            href="images/ap-05.jpg"
-            data-lightbox="gallery"
-            data-title="Image 3"
-            download
-          >
-            <img src="images/ap-05.jpg" class="grid-item" />
-          </a>
-        </div>
-      </section>
+      </div>
 
       <footer class="footer">
         <div class="container">
@@ -467,5 +443,85 @@
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      const progressCircle = document.querySelector(".autoplay-progress svg");
+      const progressContent = document.querySelector(".autoplay-progress span");
+      var swiper = new Swiper(".mySwiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: true,
+        rewind: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        on: {
+          autoplayTimeLeft(s, time, progress) {
+            progressCircle.style.setProperty("--progress", 1 - progress);
+            progressContent.textContent = `${Math.ceil(time / 1000)}s`;
+          },
+        },
+      });
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        // When the confirm booking button is clicked
+        $("#form-details button").click(function (event) {
+          event.preventDefault(); // Prevent the form from submitting
+
+          // Get the user input values
+          var name = $("#full-name").text();
+          var phone_number = $("#phone-number").text();
+          var room_type = $("#room-type").text();
+          var arrival_date = $("#check-in").text();
+          var departure_date = $("#check-out").text();
+          var number_of_guests = $("#number-of-guests").text();
+          var number_of_adults = $("#number-of-adults").text();
+          var number_of_children = $("#number-of-children").text();
+
+          // Create the data object to send in the POST request
+          var data = {
+            name: name,
+            phone_number: phone_number,
+            room_type: room_type,
+            arrival_date: arrival_date,
+            departure_date: departure_date,
+            number_of_guests: number_of_guests,
+            number_of_adults: number_of_adults,
+            number_of_children: number_of_children,
+          };
+
+          // Send the POST request
+          $.ajax({
+            url: "https://boaz.hotelipad.com/api/sr",
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function (response) {
+              console.log(response); // Log the response from the server
+              alert("Booking confirmed!"); // Display a success message to the user
+            },
+            error: function (error) {
+              console.log(error); // Log any errors that occur
+              alert("Error confirming booking. Please try again."); // Display an error message to the user
+            },
+          });
+        });
+      });
+    </script>
+
+    <script>
+      var today = new Date().toISOString().split("T")[0];
+      document.getElementById("arrival_date").setAttribute("min", today);
+    </script>
   </body>
 </html>

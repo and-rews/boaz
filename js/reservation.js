@@ -1,73 +1,52 @@
-// fetch("https://boaz.hotelipad.com/api/tariffs", {
-//   headers: {
-//     "Content-Type": "application/json",
-//     Accept: "application/json",
-//   },
-// })
-//   .then((response) => {
-//     // handle the response
-//     console.log(response.data);
-//     let select = document.querySelector("#tariff-selector");
+// const form = document.getElementById("reservation-form");
 
-//     response.json().then(function (data) {
-//       console.log("data", data);
-//       for (var i = 0; i <= data.length; i++) {
-//         var opt = document.createElement("option");
-//         opt.value = data[i].id;
-//         opt.innerHTML = data[i].name + " (GHc " + data[i].rate + ")";
-//         select.appendChild(opt);
-//       }
-//     });
-//   })
-//   .catch((error) => {
-//     // handle the error
-//     console.log(error);
-//   });
+// form.addEventListener("submit", (event) => {
+//   event.preventDefault(); // prevent the form from submitting normally
 
-// let form = document.querySelector("#reservation-form");
-// form.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const formTr = new FormData(form);
-//   console.log(formTr);
+//   const formData = new FormData(form); // create a new FormData object to store the form data
 
-//   let response = fetch("https://boaz.hotelipad.com/api/sr", {
+//   fetch("https://boaz.hotelipad.com/api/sr", {
 //     method: "POST",
-//     body: new FormData(form),
-//   });
-
-//   response
-//     .then((re) => re.json())
-//     .then((data) => console.log(data))
-//     .catch((error) => console.error(error));
-//   // let data = await response.json()
-//   // console.log(response)
-//   // alert(response)
+//     body: formData,
+//   })
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error("Network response was not ok");
+//       }
+//       return response.json();
+//     })
+//     .then((data) => {
+//       console.log(data); // handle the response data
+//     })
+//     .catch((error) => {
+//       console.error("There was a problem with the fetch operation:", error);
+//     });
 // });
-// fetch("https://jsonplaceholder.typicode.com/todos/1")
-//   .then((response) => response.json())
-//   .then((json) => console.log(json));
 
-const form = document.getElementById("reservation-form");
+$(document).ready(function () {
+  $("#reservation-form").submit(function (event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault(); // prevent the form from submitting normally
+    // Serialize the form data into a URL-encoded string
+    var formData = $(this).serialize();
 
-  const formData = new FormData(form); // create a new FormData object to store the form data
-
-  fetch("https://boaz.hotelipad.com/api/sr", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data); // handle the response data
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
+    // Send the AJAX request
+    $.ajax({
+      url: "https://boaz.hotelipad.com/api/sr",
+      method: "POST",
+      data: formData,
+      dataType: "json",
+      success: function (data) {
+        // Handle successful response here
+        alert("Your reservation was successfully booked!");
+        $("#reservation-form")[0].reset(); // Reset the form
+        window.location.href = "./booking-details.html"; // Redirect to booking details page
+      },
+      error: function (error) {
+        // Handle error here
+        console.error("There was a problem with the AJAX request:", error);
+      },
     });
+  });
 });
