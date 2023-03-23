@@ -1,8 +1,9 @@
 // Get the form and its elements
 const formm = document.getElementById("reservation-form");
-const roomType = form.elements["room_type"];
-const arrivalDate = form.elements["arrival_date"];
-const departureDate = form.elements["departure_date"];
+const roomType = formm.elements["room_type"];
+const arrivalDate = formm.elements["arrival_date"];
+const departureDate = formm.elements["departure_date"];
+console.log(formm);
 
 // Define the prices
 const prices = {
@@ -23,10 +24,14 @@ formm.addEventListener("submit", (event) => {
   // Get the selected room type and its corresponding price
   const selectedRoomType = roomType.value;
   const roomPrices = prices[selectedRoomType];
+  console.log(roomPrices);
+  console.log("me");
 
   // Calculate the total price based on the number of days and room type
   let totalPrice;
-  if (numDays <= 6) {
+  if (numDays === 0) {
+    totalPrice = roomPrices[0];
+  } else if (numDays <= 6) {
     totalPrice = numDays * roomPrices[0];
   } else if (numDays <= 13) {
     totalPrice = 6 * roomPrices[0] + (numDays - 6) * roomPrices[1];
@@ -41,14 +46,8 @@ formm.addEventListener("submit", (event) => {
       (numDays - 27) * roomPrices[3];
   }
 
-  // Display the total price to the user
-  alert(`Total Price: $${totalPrice}`);
-
   // Save the total price in Local Storage
   localStorage.setItem("totalPrice", totalPrice);
-
-  // Redirect to the booking-details.html page
-  window.location.href = "booking-details.html";
 });
 // Get the form element
 // const formm = document.getElementById("reservation-form");
