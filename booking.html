@@ -274,14 +274,15 @@
                           <span class="ion-md-calendar"></span>
                         </div>
                         <input
-                          type="date"
-                          placeholder="Check-In"
+                          type="text"
                           class="form-control"
                           name="arrival_date"
                           id="arrival_date"
                           min="<?php echo date('Y-m-d'); ?>"
                           onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
                           required
+                          placeholder="Check-In"
+                          onfocus="(this.type='date', this.value='')"
                         />
                       </div>
                     </div>
@@ -293,12 +294,13 @@
                           <span class="ion-md-calendar"></span>
                         </div>
                         <input
-                          type="date"
+                          type="text"
                           placeholder="Check-Out"
                           class="form-control"
                           name="departure_date"
                           id="departure_date"
                           required
+                          onfocus="(this.type='date', this.value='')"
                         />
                       </div>
                     </div>

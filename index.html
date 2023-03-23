@@ -131,15 +131,15 @@
 		</nav>
 		<!-- END nav -->
 
-		<div class="hero-wrap js-fullheight" style="background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.315)),url('images/hero.jpeg');"
+		<div class="hero-wrap js-fullheight" style="background-image: url('images/hero.jpeg');"
 			data-stellar-background-ratio="0.5">
 			
 			<div class="container" >
 				<div class="row no-gutters slider-text text-right js-fullheight align-items-center justify-content-end"
 					data-scrollax-parent="true">
 					<div class="col-md-7 ftco-animate" >
-						<h2 class="subheading" >Welcome to The Boaz Executive Place</h2>
-						<h1 class="mb-4" >Book an apartment for your vacation</h1>
+						<h2 class="subheading" style="text-shadow: 2px 2px #ff0000;">Welcome to The Boaz Executive Place</h2>
+						<h1 class="mb-4" style="text-shadow: 2px 2px #ff0000;">Book an apartment for your vacation</h1>
 						<p><a href="about.html" class="btn btn-primary">Learn more</a> <a href="contact.html"
 								class="btn btn-white">Contact
 								us</a></p>
@@ -214,7 +214,7 @@
 										<span class="ion-md-calendar"></span>
 										</div>
 										<input
-										type="date"
+										type="text"
 										placeholder="Check-In"
 										class="form-control"
 										name="arrival_date"
@@ -222,6 +222,7 @@
 										min="<?php echo date('Y-m-d'); ?>"
 										onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
 										required
+										onfocus="(this.type='date', this.value='')"
 										/>
 									</div>
 									</div>
@@ -233,12 +234,13 @@
 										<span class="ion-md-calendar"></span>
 										</div>
 										<input
-										type="date"
+										type="text"
 										placeholder="Check-Out"
 										class="form-control"
 										name="departure_date"
 										id="departure_date"
 										required
+										onfocus="(this.type='date', this.value='')"
 										/>
 									</div>
 									</div>
