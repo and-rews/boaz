@@ -12327,11 +12327,15 @@ footer {
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
   margin-top: 2rem;
   padding: 5rem;
-  
 }
 
 .booking-card button {
   border: none;
+}
+
+.booking-btn {
+  display: grid;
+  margin: auto;
 }
 
 .detail {
@@ -12341,4 +12345,16 @@ footer {
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.detail-logo {
+  display: grid;
+  margin: auto;
+  margin-bottom: 5rem;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

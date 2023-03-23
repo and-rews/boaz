@@ -197,7 +197,9 @@
 
       <div class="row justify-content-center">
         <div class="card booking-card" id="form-details">
-          <img src="./images/boaz-logo.png" alt="" />
+          <div class="detail-logo">
+            <img src="./images/boaz-logo.png" alt="" />
+          </div>
           <div class="grid">
             <div class="detail">
               <h3>The Boaz Place</h3>
@@ -240,11 +242,6 @@
                 </p>
               </div>
             </div>
-            <div>
-              <button type="submit" class="btn btn-success mt-3">
-                Confirm Booking
-              </button>
-            </div>
 
             <script>
               const params = new URLSearchParams(window.location.search);
@@ -265,6 +262,11 @@
               document.getElementById("number-of-children").textContent =
                 params.get("number_of_children");
             </script>
+          </div>
+          <div class="booking-btn">
+            <button type="submit" class="btn btn-success mt-3">
+              Confirm Booking
+            </button>
           </div>
         </div>
       </div>

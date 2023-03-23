@@ -230,6 +230,8 @@
                         class="form-control"
                         placeholder="Full Name"
                         name="name"
+                        id="name"
+                        required
                       />
                     </div>
                   </div>
@@ -240,6 +242,8 @@
                         class="form-control"
                         placeholder="Phone number"
                         name="phone_number"
+                        id="phone"
+                        required
                       />
                     </div>
                   </div>
@@ -249,6 +253,7 @@
                         name="room_type"
                         id="room_type"
                         class="form-control"
+                        required
                       >
                         <option value="" disabled selected>
                           Select Room Type
@@ -282,6 +287,7 @@
                           id="arrival_date"
                           min="<?php echo date('Y-m-d'); ?>"
                           onchange="document.getElementById('departure_date').setAttribute('min', this.value);"
+                          required
                         />
                       </div>
                     </div>
@@ -298,6 +304,7 @@
                           class="form-control"
                           name="departure_date"
                           id="departure_date"
+                          required
                         />
                       </div>
                     </div>
@@ -312,6 +319,7 @@
                         placeholder="Number of Guests"
                         name="number_of_guests"
                         id="number_of_guests"
+                        required
                       />
                     </div>
                   </div>
@@ -320,7 +328,7 @@
                     <div class="form-group">
                       <input
                         type="number"
-                        min="1"
+                        min="0"
                         class="form-control"
                         placeholder="Adults"
                         name="number_of_adults"
@@ -342,11 +350,7 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <button
-                        type="submit"
-                        class="btn btn-primary"
-                        onclick="window.location.href = './booking-details.html'"
-                      >
+                      <button type="submit" class="btn btn-primary">
                         Submit
                       </button>
                     </div>
@@ -533,6 +537,28 @@
     <script src="js/reservation.js"></script>
 
     <script src="js/details.js"></script>
+
+    <script>
+      document
+        .getElementById("reservation-form")
+        .addEventListener("submit", function (event) {
+          var numGuests = parseInt(
+            document.getElementById("number_of_guests").value
+          );
+
+          var name = parseInt(document.getElementById("name").value);
+          var numAdults = parseInt(document.getElementById("adults").value);
+          var numChildren = parseInt(document.getElementById("children").value);
+
+          if (numAdults + numChildren !== numGuests) {
+            event.preventDefault();
+            alert(
+              "Number of adults and children must be equal to the total number of guests."
+            );
+            window.location.href = "./booking.html";
+          }
+        });
+    </script>
 
     <script>
       var today = new Date().toISOString().split("T")[0];
