@@ -10755,6 +10755,7 @@ h5,
   color: white;
   display: inline-block;
   position: relative;
+  color: #e4606d;
 }
 .hero-wrap .slider-text p {
   font-size: 18px;
@@ -12348,5 +12349,3 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
-
