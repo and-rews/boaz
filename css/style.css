@@ -12345,3 +12345,7 @@ footer {
   justify-content: center;
   align-items: center;
 }
+
+.services-wap {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
