@@ -12358,7 +12358,24 @@ footer {
   }
 
   .gridd {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto;
+  }
+
+  .dw {
+    width: 100%;
+    margin: auto;
+  }
+
+  .details-card {
+    width: 100%;
+    margin: auto;
+  }
+
+  .booking-card {
+    width: 100%;
+    margin: auto;
   }
 }
 
