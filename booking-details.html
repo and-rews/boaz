@@ -252,7 +252,7 @@
             </script>
           </div>
           <div class="booking-btn">
-            <button type="submit" class="btn btn-success mt-3">
+            <button id="confirm-booking" class="btn btn-success mt-3">
               Confirm Booking
             </button>
           </div>
@@ -471,49 +471,53 @@
     </script>
 
     <script>
-      $(document).ready(function () {
-        // When the confirm booking button is clicked
-        $("#form-details button").click(function (event) {
-          event.preventDefault(); // Prevent the form from submitting
+      const confirmButton = document.getElementById("confirm-booking");
 
-          // Get the user input values
-          var name = $("#full-name").text();
-          var phone_number = $("#phone-number").text();
-          var room_type = $("#room-type").text();
-          var arrival_date = $("#check-in").text();
-          var departure_date = $("#check-out").text();
-          var number_of_guests = $("#number-of-guests").text();
-          var number_of_adults = $("#number-of-adults").text();
-          var number_of_children = $("#number-of-children").text();
+      confirmButton.addEventListener("click", () => {
+        const params = new URLSearchParams(window.location.search);
+        const total_price_element = document.getElementById("total-price");
+        const total_price = total_price_element
+          ? parseFloat(total_price_element.textContent.replace(/\D/g, ""))
+          : 0;
 
-          // Create the data object to send in the POST request
-          var data = {
-            name: name,
-            phone_number: phone_number,
-            room_type: room_type,
-            arrival_date: arrival_date,
-            departure_date: departure_date,
-            number_of_guests: number_of_guests,
-            number_of_adults: number_of_adults,
-            number_of_children: number_of_children,
-          };
+        const data = {
+          name: params.get("name"),
+          phone_number: params.get("phone_number"),
+          room_type: params.get("room_type"),
+          arrival_date: params.get("arrival_date"),
+          departure_date: params.get("departure_date"),
+          number_of_guests: params.get("number_of_guests"),
+          number_of_adults: params.get("number_of_adults"),
+          number_of_children: params.get("number_of_children"),
+          total_price: total_price,
+        };
 
-          // Send the POST request
-          $.ajax({
-            url: "https://boaz.hotelipad.com/api/sr",
-            type: "POST",
-            data: JSON.stringify(data),
-            contentType: "application/json",
-            success: function (response) {
-              console.log(response); // Log the response from the server
-              alert("Booking confirmed!"); // Display a success message to the user
-            },
-            error: function (error) {
-              console.log(error); // Log any errors that occur
-              alert("Error confirming booking. Please try again."); // Display an error message to the user
-            },
+        fetch("https://boaz.hotelipad.com/api/sr", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              alert(
+                "Reservation request made successfully...our customer service personnel would contact you shortly."
+              );
+              window.location.href = "./";
+            } else {
+              alert(
+                "There was an error confirming the booking. Please try again later."
+              );
+            }
+          })
+          .catch((error) => {
+            console.error("Error confirming booking:", error);
+            alert(
+              "There was an error confirming the booking. Please try again later."
+            );
+            console.error(error);
           });
-        });
       });
     </script>
 
