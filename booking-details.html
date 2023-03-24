@@ -178,23 +178,31 @@
         </div>
       </nav>
 
-      <div class="row justify-content-center">
-        <div class="card booking-card" id="form-details">
-          <div class="detail-logo">
-            <img src="./images/boaz-logo.png" alt="" />
-          </div>
-          <div class="grid">
+      <div class="row booking">
+        <div class="booking-card" id="form-details">
+          <div class="gridd">
             <div class="detail">
-              <h3>The Boaz Place</h3>
-              <div class="card p-4">
-                <p><strong>Check-In:</strong> <span id="check-in"></span></p>
-                <p><strong>Check-Out:</strong> <span id="check-out"></span></p>
+              <div class="details-card p-4">
+                <h3>The Boaz Place</h3>
+                <div class="dw text-dark">
+                  <p><strong>Name:</strong> <span id="full-name"></span></p>
+                  <p>
+                    <strong>Phone Number:</strong>
+                    <span id="phone-number"></span>
+                  </p>
+                  <p><strong>Check-In:</strong> <span id="check-in"></span></p>
+                  <p>
+                    <strong>Check-Out:</strong> <span id="check-out"></span>
+                  </p>
+                </div>
               </div>
             </div>
 
             <div class="detail">
-              <h5 class="mt-3">Accomodation Booking</h5>
-              <div class="card p-4">
+              <div class="details-card p-4 text-dark">
+                <h3 style="border-bottom: 1px dotted gray; padding: 5px" ;>
+                  Room Details
+                </h3>
                 <p><strong>Room Type:</strong> <span id="room-type"></span></p>
 
                 <p>
@@ -209,25 +217,22 @@
                   <strong>Children:</strong>
                   <span id="number-of-children"></span>
                 </p>
-              </div>
-            </div>
-            <div class="detail">
-              <h5 class="mt-3">Price Summary</h5>
-              <div class="card p-4">
-                <p>
-                  <strong>Total Price:</strong>
-                  <span id="total-price"></span>
-                </p>
-              </div>
-            </div>
-
-            <div class="detail">
-              <h5 class="mt-3">Guest Details</h5>
-              <div class="card p-4">
-                <p><strong>Name:</strong> <span id="full-name"></span></p>
-                <p>
-                  <strong>Phone Number:</strong> <span id="phone-number"></span>
-                </p>
+                <div
+                  class="flex"
+                  style="border-top: 1px solid gray; padding: 5px"
+                >
+                  <h4>
+                    <strong>Total Price:</strong>
+                  </h4>
+                  <h3>
+                    <span id="total-price"></span>
+                  </h3>
+                </div>
+                <div class="booking-btn">
+                  <button id="confirm-booking" class="btn btn-success mt-3">
+                    Confirm Booking
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -250,11 +255,6 @@
               document.getElementById("number-of-children").textContent =
                 params.get("number_of_children");
             </script>
-          </div>
-          <div class="booking-btn">
-            <button id="confirm-booking" class="btn btn-success mt-3">
-              Confirm Booking
-            </button>
           </div>
         </div>
       </div>
