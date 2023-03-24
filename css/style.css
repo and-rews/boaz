@@ -12370,10 +12370,11 @@ footer {
 
   .details-card {
     width: 100%;
+    margin: auto;
   }
 
   .booking-card {
-    display: grid;
+    width: 100%;
     margin: auto;
   }
 }
