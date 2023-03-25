@@ -229,7 +229,7 @@
                   </h3>
                 </div>
                 <div class="booking-btn">
-                  <button id="confirm-booking" class="btn btn-success mt-3">
+                  <button id="confirm-booking" class="btn btn-primary mt-3">
                     Confirm Booking
                   </button>
                 </div>
@@ -440,9 +440,17 @@
     <script>
       // Get the total price from Local Storage
       const totalPrice = localStorage.getItem("totalPrice");
-      // Display the total price on the page
-      const totalPriceElement = document.getElementById("total-price");
-      totalPriceElement.textContent = `$${totalPrice}`;
+
+      // Format the total price with commas and two decimal places
+      const formattedPrice = parseFloat(totalPrice).toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+      });
+
+      // Display the formatted price on the booking-details page
+      const priceElement = document.getElementById("total-price");
+      priceElement.textContent = formattedPrice;
     </script>
 
     <script>

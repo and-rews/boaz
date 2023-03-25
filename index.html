@@ -32,6 +32,7 @@
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/css/swiper.css">
+	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
 </head>
 
@@ -123,27 +124,51 @@
 		</nav>
 		<!-- END nav -->
 
-		<div class="hero-wrap js-fullheight" style="background-image: url('images/hero.jpeg');"
-			data-stellar-background-ratio="0.5">
-			
-			<div class="container" >
-				<div class="row no-gutters slider-text text-right js-fullheight align-items-center justify-content-end"
-					data-scrollax-parent="true">
-					<div class="col-md-7 ftco-animate" >
-						<h2 class="subheading" style="text-shadow: 2px 2px #ff00003b;">Welcome to The Boaz Executive Place</h2>
-						<h1 class="mb-4" style="text-shadow: 2px 2px #ff000041;">Book an apartment for your vacation</h1>
+		 <!-- Swiper -->
+		<div class="heroSwiper ">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+					<img src="./images/slide4.jpg" alt="">
+					<div class="col-md-7 hero-text ftco-animate" >
+						<h2 class="subheading" ></h2>
+						<h1 style="font-size: 3rem; color: #fff; text-shadow: 2px 2px #00000042;" class="mb-4" >Welcome to The Boaz Executive Place</h1>
 						<p><a href="about.html" class="btn btn-primary">Learn more</a> <a href="contact.html"
 								class="btn btn-white">Contact
 								us</a></p>
 					</div>
 				</div>
-				
+				<div class="swiper-slide"><img src="./images/slide2.jpg" alt="">
+				<div class="col-md-7 hero-text ftco-animate" >
+						
+						<h1 style="font-size: 3rem; color: #fff; text-shadow: 2px 2px #00000042;" class="mb-4" >Book an apartment for your vacation</h1>
+						<p><a href="booking.html" class="btn btn-primary">Book Now</a> <a href="contact.html"
+								class="btn btn-white">Contact
+								us</a></p>
+					</div></div>
+				<div class="swiper-slide"><img src="./images/02.jpg" alt="">
+				<div class="col-md-7 hero-text ftco-animate" >
+						<h1 style="font-size: 3rem; color: #fff; text-shadow: 2px 2px #00000042;" class="mb-4" > Epitome of sophistication and luxury</h1>
+						<p><a href="about.html" class="btn btn-primary">Learn more</a> <a href="contact.html"
+								class="btn btn-white">Contact
+								us</a></p>
+					</div></div>
+			
+				</div>
 			</div>
 		</div>
 
-		<section class="ftco-section ftco-book ftco-no-pt ftco-no-pb shadow">
+		<!-- <div class="hero-wrap js-fullheight" style="background-image: url('images/hero.jpeg');"
+			data-stellar-background-ratio="0.5">
+			
+			<div class="container" >
+				
+				
+			</div>
+		</div> -->
+
+		<section class="ftco-section ftco-book ftco-no-pt ftco-no-pb shadow z-index">
 			<div class="container">
-				<div class="row justify-content-start">
+				<div class="row justify-content-start align-items-start">
 					<div class="col-lg-4">
 						 <form
 							action="./booking-details.html"
@@ -309,7 +334,7 @@
 					</div>
 				</div>
 				<div class="about-image">
-					<img src="images/core-02.jpg" alt="">
+					<img src="images/room1.jpg" alt="">
 				</div>
 			</div>
 		</section>
@@ -815,6 +840,33 @@
 			}
 		});
 	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+
+    var heroSwiper = new Swiper(".heroSwiper", {
+		loop: true,
+    //   spaceBetween: 30,
+		// direction:'vertical',
+      centeredSlides: true,
+	  autoplay:false,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+	  speed:1500,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
 	
 	
 
