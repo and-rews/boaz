@@ -12357,34 +12357,6 @@ footer {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-@media only screen and (max-width: 800px) {
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .gridd {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: auto;
-  }
-
-  .dw {
-    width: 100%;
-    margin: auto;
-  }
-
-  .details-card {
-    width: 100%;
-    margin: auto;
-  }
-
-  .booking-card {
-    width: 100%;
-    margin: auto;
-  }
-}
-
 .details-card {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: 10px;
@@ -12449,4 +12421,82 @@ footer {
   position: relative;
   top: -70vh;
   left: 40vw;
+}
+
+.more-container {
+  display: flex;
+  justify-content: center;
+}
+
+.more {
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.more img {
+  border-radius: 5px;
+}
+
+.more-text h3,
+.more-text p {
+  width: 80%;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 800px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .gridd {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto;
+  }
+
+  .dw {
+    width: 100%;
+    margin: auto;
+  }
+
+  .details-card {
+    width: 100%;
+    margin: auto;
+  }
+
+  .booking-card {
+    width: 100%;
+    margin: auto;
+  }
+
+  .hero-text {
+    display: none;
+  }
+
+  .heroSwiper {
+    height: 50vh;
+  }
+
+  .more-container {
+    display: grid;
+    width: 100vw;
+  }
+
+  .more {
+    display: grid;
+  }
+
+  .more img {
+    height: 30vh;
+    width: 90vw !important;
+  }
+
+  .more-text h3,
+  .more-text p {
+    width: 90vw;
+    display: grid;
+    margin: auto;
+  }
 }
