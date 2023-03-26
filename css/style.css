@@ -12429,13 +12429,13 @@ footer {
 }
 
 .more {
-  width: 80%;
   display: flex;
   align-items: center;
 }
 
 .more img {
   border-radius: 5px;
+  width: 30vw;
 }
 
 .more-text h3,
