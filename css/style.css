@@ -12499,4 +12499,9 @@ footer {
     display: grid;
     margin: auto;
   }
+
+  .detail {
+    align-items: center;
+    width: 100%;
+  }
 }
