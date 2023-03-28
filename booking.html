@@ -504,6 +504,28 @@
     <script src="js/room-price.js"></script>
 
     <script>
+      document
+        .getElementById("reservation-form")
+        .addEventListener("submit", function (event) {
+          var numGuests = parseInt(
+            document.getElementById("number_of_guests").value
+          );
+
+          var name = parseInt(document.getElementById("name").value);
+          var numAdults = parseInt(document.getElementById("adults").value);
+          var numChildren = parseInt(document.getElementById("children").value);
+
+          if (numAdults + numChildren !== numGuests) {
+            event.preventDefault();
+            alert(
+              "Number of adults and children must be equal to the total number of guests."
+            );
+            window.location.href = "./";
+          }
+        });
+    </script>
+
+    <script>
       var today = new Date().toISOString().split("T")[0];
       document.getElementById("arrival_date").setAttribute("min", today);
     </script>
