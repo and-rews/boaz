@@ -454,12 +454,12 @@
       const formattedPrice = parseFloat(totalPrice).toLocaleString("en-US", {
         style: "currency",
         currency: "USD",
-        minimumFractionDigits: 2,
+        minimumFractionDigits: 0,
       });
 
       // Display the formatted price on the booking-details page
       const priceElement = document.getElementById("total-price");
-      priceElement.textContent = formattedPrice;
+      priceElement.textContent = `$${totalPrice}`;
     </script>
 
     <script>
